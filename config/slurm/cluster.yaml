@@ -1,0 +1,730 @@
+__default__:
+  jobname: "{rule}"
+  nodes: 1
+  ntaskspernode: 1
+  cpuspertask: 1
+  mempercpu: "8gb"
+  time: "24:00:00"
+  output: "logs/{rule}.txt"
+
+prepareMetadataForEDA:
+  output: "logs/{rule}.atlas.txt"
+
+runEDApseudobulk:
+  output: "logs/{rule}.{wildcards.disease_focus}.{wildcards.egfr_split}.{wildcards.count_threshold}.pseudobulk.txt"
+
+runEDAminibulk:
+  output: "logs/{rule}.{wildcards.disease_focus}.{wildcards.egfr_split}.{wildcards.count_threshold}.{wildcards.cell_type}.txt"
+
+plotPCA:
+  output: "logs/{rule}.{wildcards.disease_focus}.{wildcards.egfr_split}.{wildcards.count_threshold}.{wildcards.set}.txt"
+
+peak_corr:
+  nodes: 1
+  cpuspertask: 24
+  #time: "10:00:00"
+  mempercpu: "24gb"
+
+ATAC_createArchRproject:
+  nodes: 1
+  cpuspertask: 24
+  time: "10:00:00"
+  mempercpu: "24gb"
+
+ATAC_doubletFiltering:
+  nodes: 1
+  cpuspertask: 24
+  time: "5:00:00"
+  mempercpu: "24gb"
+
+ATAC_addQCandMetadata:
+  nodes: 1
+  cpuspertask: 24
+  time: "1:00:00"
+  mempercpu: "24gb"
+
+ATAC_dimensionalityReduction:
+  nodes: 1
+  cpuspertask: 24
+  time: "4:00:00"
+  mempercpu: "24gb"
+
+ATAC_labelTransfer:
+  nodes: 1
+  cpuspertask: 24
+  time: "4:00:00"
+  mempercpu: "24gb"
+
+ATAC_extractGeneScoreMatrix:
+  nodes: 1
+  cpuspertask: 24
+  time: "2:00:00"
+  mempercpu: "24gb"
+
+ATAC_geneScoreMatrixToH5ad:
+  nodes: 1
+  cpuspertask: 8
+  time: "2:00:00"
+  mempercpu: "24gb"
+
+ATAC_decoupler_annotation_scores:
+  nodes: 1
+  cpuspertask: 24
+  time: "2:00:00"
+  mempercpu: "24gb"
+
+ATAC_subset:
+  nodes: 1
+  cpuspertask: 24
+  time: "2:00:00"
+  mempercpu: "24gb"
+
+ATAC_subcluster:
+  nodes: 1
+  cpuspertask: 24
+  time: "8:00:00"
+  mempercpu: "24gb"
+
+ATAC_concatenate_coordinates:
+  nodes: 1
+  cpuspertask: 1
+  time: "1:00:00"
+  mempercpu: "10gb"
+
+ATAC_concatenate_subclusters:
+  nodes: 1
+  cpuspertask: 1
+  time: "1:00:00"
+  mempercpu: "4gb"
+
+ATAC_create_adata:
+  nodes: 1
+  cpuspertask: 8
+  time: "1:00:00"
+  mempercpu: "24gb"
+
+ATAC_update_annotations:
+  nodes: 1
+  cpuspertask: 8
+  time: "0:30:00"
+  mempercpu: "5gb"
+
+ATAC_addAnnotations:
+  nodes: 1
+  cpuspertask: 24
+  time: "2:00:00"
+  memperpu: "24gb"
+
+ATAC_generatePeaks:
+  nodes: 1
+  cpuspertask: 24
+  time: "2:00:00"
+  memperpu: "24gb"
+
+ATAC_retrievePeakMatrix:
+  nodes: 1
+  cpuspertask: 24
+  time: "2:00:00"
+  memperpu: "24gb"
+
+ATAC_motifEnrichment:
+  nodes: 1
+  cpuspertask: 24
+  time: "4:00:00"
+  memperpu: "24gb"
+
+ATAC_peakToH5ad:
+  nodes: 1
+  cpuspertask: 8
+  time: "1:00:00"
+  mempercpu: "10gb"
+
+RNA_mf_scitd_setranks_subset_atlas:
+  nodes: 1
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "100gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas.{wildcards.subset}"
+
+RNA_mf_scitd_decomp_subset_atlas:
+  nodes: 1
+  cpuspertask: 1
+  time: "120:00:00"
+  mempercpu: "100gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas.{wildcards.subset}"
+
+RNA_exp_minimal_h5seurat:
+  nodes: 1
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "100gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_exp_minimal_h5ad:
+  nodes: 1
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "100gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_exp_h5seurat:
+  nodes: 1
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_exp_anndata1:
+  nodes: 1
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_exp_anndata2:
+  nodes: 1
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_sc_dorothea:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_sc_progeny:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_gsc_vision_atlas:
+  cpuspertask: 10
+  time: "24:00:00"
+  mempercpu: "100gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas.{wildcards.gsc}"
+
+RNA_gsc_scMat_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas.{wildcards.gsc}"
+
+RNA_mark_harmony_atlas:
+  cpuspertask: 12
+  time: "24:00:00"
+  mempercpu: "75gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas.{wildcards.clust_lvl}"
+
+RNA_genesorter_harmony_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "75gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas.{wildcards.clust_lvl}"
+
+RNA_umi_QCscDblFinder_sample:
+  cpuspertask: 1
+  time: "1:00:00"
+  mempercpu: "20gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.id}"
+
+RNA_umi_QCdoublet_sample:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "48gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.id}"
+
+RNA_qc_sample:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.id}"
+
+RNA_qcLowRes_sample:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.id}"
+
+RNA_qc_ms_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+ 
+RNA_qc_scat_acrossSamples:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "8gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_qc_umap_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "16gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_vis_clustree:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "8gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_vis_dge:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_vis_heatmap:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_vis_dotplot:
+  cpuspertask: 3
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_vis_dotplot_sample:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "50gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_qc_vln_amongPOPX:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "8gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+ 
+RNA_rpt_anncoocur_intsids_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "4gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_umi_merge_group:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}"
+
+RNA_umi_merge_contrast:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "64gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}"
+
+RNA_umi_merge_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "100gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_umi_QCdoublet_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "100gb"
+  output: "logs/{rule}.RNA.atlas"
+
+RNA_umi_pseudobulk_contrast:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "48gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}"
+
+RNA_umi_pseudobulk_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "64gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_umi_minibulk_group:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}.{wildcards.popx}"
+
+RNA_umi_minibulk_contrast:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "100gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}.{wildcards.popx}"
+
+RNA_umi_minibulk_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "100gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.popx}"
+
+RNA_dim_pca_group:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "100gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}"
+
+RNA_dim_pca_contrast:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "100gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}"
+
+RNA_dim_pca_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_dim_umap_group:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "10gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}"
+
+RNA_dim_umap_contrast:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "10gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}"
+
+RNA_dim_umap_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "20gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_norm_pooldeconv:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "500gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_norm_sctransform:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "40gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.id}"
+
+RNA_norm_merge_group:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}"
+
+RNA_norm_merge_contrast:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}"
+
+RNA_norm_merge_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_norm_log1p_contrast:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}"
+
+RNA_norm_log1p_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_int_harmony_group:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}"
+
+RNA_int_harmony_contrast:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}"
+
+RNA_int_harmony_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_clust_harmony_group:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "16gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}"
+
+RNA_clust_harmony_contrast:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "16gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}"
+
+RNA_clust_harmony_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "16gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_clust_subclust_contrast:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}"
+
+RNA_ann_sample:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.id}"
+
+RNA_ann_annotate_sample:
+  cpuspertask: 1
+  time: "00:20:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.id}"
+
+RNA_ann_group:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}"
+
+RNA_ann_contrast:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}"
+
+RNA_ann_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}"
+
+RNA_map_sample:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "16gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.id}"
+
+RNA_cdataumi_sample:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.id}"
+
+RNA_cdata_sample:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.id}"
+
+RNA_cdatabase_sample:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.id}"
+
+RNA_cdata_group:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}"
+
+RNA_cdata_contrast:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}"
+
+RNA_cdata_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_comm_prepare:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.id}"
+
+RNA_cpdb_prepare:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}"
+
+RNA_comm_cpdb:
+  cpuspertask: 8
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.id}"
+
+RNA_cpdb_cpdb:
+  cpuspertask: 8
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}"
+
+RNA_comm_merge:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "64gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}"
+
+RNA_comm_combine:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "64gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}"
+
+RNA_comm_combineSignif:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "64gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}"
+
+RNA_cpdb_idx2cluster:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}"
+
+RNA_comm_cpdb2crosstalker:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}"
+
+RNA_cpdb_cpdb2crosstalker:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.gid}"
+
+RNA_minibulk_dge:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "8gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}.{wildcards.k}"
+ 
+RNA_minibulk_go:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "8gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}"
+
+RNA_minibulk_progeny:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "8gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}.{wildcards.k}"
+
+RNA_minibulk_dorothea:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "8gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}.{wildcards.k}"
+
+RNA_minibulk_collectri:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "8gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}.{wildcards.k}"
+
+RNA_minibulk_fgsea:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "8gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}"
+
+RNA_aggregate_dge:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}.{wildcards.popx}"
+
+RNA_corrplot_dge:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "8gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}.{wildcards.popx}"
+
+RNA_aggregate_go:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}.{wildcards.popx}"
+
+RNA_aggregate_progeny:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}.{wildcards.popx}"
+
+RNA_aggregate_gsea:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}.{wildcards.popx}"
+
+RNA_coda_prepare:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "4gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}.{wildcards.popx}"
+
+RNA_coda_run_contrast:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "8gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}.{wildcards.popx}"
+
+RNA_coda_plot_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "4gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_cacoa_exprshift:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "200gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}.{wildcards.popx}"
+
+RNA_dim_mds_contrast:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "4gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}"
+
+RNA_dim_mds_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "4gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+
+RNA_pop_outcome_contrast:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.{wildcards.cid}"
+
+RNA_pop_outcome_atlas:
+  cpuspertask: 1
+  time: "24:00:00"
+  mempercpu: "2gb"
+  output: "logs/{rule}.{wildcards.assay}.atlas"
+

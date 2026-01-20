@@ -1,0 +1,18 @@
+# IMPORTANT: Clusters across all 'ann_dict' should be mutually exclusive 
+# In the atlas ann_dict, I have excluded the clusters which make up the pt, vsm_p_fib and pc_cnt_dct subsets
+atlas:
+  'cluster_file': 'out/archr/Atlas/ATAC/clusters.csv'
+  'cluster_label': 'HarmonyLeidenClusters'
+  'ann_dict': {'C1': 'POD', 'C3': 'EC', 'C4': 'IMM', 'C12': 'IC', 'C14': 'TAL'}
+pt:
+  'cluster_file': 'out/archr/Atlas/ATAC/subclusters_pt.csv'
+  'cluster_label': 'SubsetClusters_3_1_200000_0.2'
+  'ann_dict': {'C1': 'PT', 'C2': 'PT', 'C3': 'PT', 'C4': 'PT', 'C5': 'PT', 'C6': 'PT', 'C7': 'remove', 'C8': 'PEC', 'C9': 'remove'}
+vsm_p_fib:
+  'cluster_file': 'out/archr/Atlas/ATAC/subclusters_vsm_p_fib.csv'
+  'cluster_label': 'SubsetClusters_3_0.4_100000_0.2'
+  'ann_dict': {'C1': 'VSM/P', 'C2': 'VSM/P', 'C3': 'remove', 'C4': 'FIB', 'C5': 'FIB'}
+pc_cnt_dct:
+  'cluster_file': 'out/archr/Atlas/ATAC/subclusters_pc_cnt_dct.csv'
+  'cluster_label': 'SubsetClusters_3_0.4_200000_0.2'
+  'ann_dict': {'C1': 'PC/CNT', 'C2': 'DCT'}

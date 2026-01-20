@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+.snakemake/
+*.Rproj
+data/*
+plots/*
+out/*
+workflow/envs/archr_1.0.3-base-r4.1_0.0.1.sif

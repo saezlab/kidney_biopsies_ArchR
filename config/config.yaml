@@ -1,0 +1,97 @@
+paramspace:
+    'ITER': [2, 3]
+    'RES': [0.05, 0.2, 0.4, 1, 2]
+    'VARFEATURES': [8e4, 1e5, 2e5]
+# Round 1
+pt: # Done
+    'input': 'out/archr/Atlas/ATAC/proj_2'
+    'threads': 24
+    'cluster_label': 'HarmonyLeidenClusters'
+    'cluster_subset': 'c("C5", "C6", "C7", "C8", "C9", "C10", "C11")'
+    'input_adata': 'out/archr/Atlas/ATAC/gene_score_matrix.h5ad'
+    'subset_py': ["C5", "C6", "C7", "C8", "C9", "C10"]
+ec: # Done
+    'input': 'out/archr/Atlas/ATAC/proj_2'
+    'threads': 24
+    'cluster_label': 'HarmonyLeidenClusters'
+    'cluster_subset': 'c("C3")'
+    'input_adata': 'out/archr/Atlas/ATAC/gene_score_matrix.h5ad'
+    'subset_py': ["C3"]
+vsm_p_fib: # Done
+    'input': 'out/archr/Atlas/ATAC/proj_2'
+    'threads': 24
+    'cluster_label': 'HarmonyLeidenClusters'
+    'cluster_subset': 'c("C2")'
+    'input_adata': 'out/archr/Atlas/ATAC/gene_score_matrix.h5ad'
+    'subset_py': ["C2"]
+pod: # Done
+    'input': 'out/archr/Atlas/ATAC/proj_2'
+    'threads': 24
+    'cluster_label': 'HarmonyLeidenClusters'
+    'cluster_subset': 'c("C1")'
+    'input_adata': 'out/archr/Atlas/ATAC/gene_score_matrix.h5ad'
+    'subset_py': ["C1"]
+pec: # Done
+    'input': 'out/archr/Atlas/ATAC/proj_2'
+    'threads': 24
+    'cluster_label': 'HarmonyLeidenClusters'
+    'cluster_subset': 'c("C11")'
+    'input_adata': 'out/archr/Atlas/ATAC/gene_score_matrix.h5ad'
+    'subset_py': ["C11"]
+imm: # Done
+    'input': 'out/archr/Atlas/ATAC/proj_2'
+    'threads': 24
+    'cluster_label': 'HarmonyLeidenClusters'
+    'cluster_subset': 'c("C4")'
+    'input_adata': 'out/archr/Atlas/ATAC/gene_score_matrix.h5ad'
+    'subset_py': ["C4"]
+ic: # Done
+    'input': 'out/archr/Atlas/ATAC/proj_2'
+    'threads': 24
+    'cluster_label': 'HarmonyLeidenClusters'
+    'cluster_subset': 'c("C12")'
+    'input_adata': 'out/archr/Atlas/ATAC/gene_score_matrix.h5ad'
+    'subset_py': ["C12"]
+pc_cnt_dct: # Done
+    'input': 'out/archr/Atlas/ATAC/proj_2'
+    'threads': 24
+    'cluster_label': 'HarmonyLeidenClusters'
+    'cluster_subset': 'c("C13")'
+    'input_adata': 'out/archr/Atlas/ATAC/gene_score_matrix.h5ad'
+    'subset_py': ["C13"]
+tal: # Done
+    'input': 'out/archr/Atlas/ATAC/proj_2'
+    'threads': 24
+    'cluster_label': 'HarmonyLeidenClusters'
+    'cluster_subset': 'c("C14")'
+    'input_adata': 'out/archr/Atlas/ATAC/gene_score_matrix.h5ad'
+    'subset_py': ["C14"]
+# Round 2
+# pc_cnt:
+#     'input': 'out/archr/Atlas/ATAC/ArchRSubset_pc_cnt_dct'
+#     'threads': 24
+#     'cluster_label': 'HarmonyLeidenClusters'
+#     'subset': 'c("PC/CNT")'
+#     'input_adata': 'out/archr/Atlas/ATAC/data/adata_pc_cnt_dct.h5ad'
+#     'subset_py': ["PC/CNT"]
+# dct:
+#     'input': 'out/archr/Atlas/ATAC/ArchRSubset_pc_cnt_dct'
+#     'threads': 24
+#     'cluster_label': 'HarmonyLeidenClusters'
+#     'subset': 'c("DCT")'
+#     'input_adata': 'out/archr/Atlas/ATAC/data/adata_pc_cnt_dct.h5ad'
+#     'subset_py': ["DCT"]
+# vsm_p:
+#     'input': 'out/archr/Atlas/ATAC/ArchRSubset_vsm_p_fib'
+#     'threads': 24
+#     'cluster_label': 'HarmonyLeidenClusters'
+#     'subset': 'c("VSM/P")'
+#     'input_adata': 'out/archr/Atlas/ATAC/gene_score_matrix.h5ad'
+#     'subset_py': ["VSM/P"]
+# fib:
+#     'input': 'out/archr/Atlas/ATAC/ArchRSubset_vsm_p_fib'
+#     'threads': 24
+#     'cluster_label': 'HarmonyLeidenClusters'
+#     'subset': 'c("FIB")'
+#     'input_adata': 'out/archr/Atlas/ATAC/gene_score_matrix.h5ad'
+#     'subset_py': ["FIB"]

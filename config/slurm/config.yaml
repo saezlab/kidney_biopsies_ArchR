@@ -1,0 +1,7 @@
+cluster-config: "config/slurm/cluster.yaml"
+cluster: "sbatch --job-name={cluster.jobname} --exclude=cln[066,070,077,072,079,143,144,127,130,137,145],denbi4 --nodes={cluster.nodes} --ntasks-per-node={cluster.ntaskspernode} --cpus-per-task={cluster.cpuspertask} --mem-per-cpu={cluster.mempercpu} --time={cluster.time} --output={cluster.output} --export=ALL "
+jobs: 20
+verbose: true
+notemp: true
+latency-wait: "180"
+use-conda: "True"
