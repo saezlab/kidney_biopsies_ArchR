@@ -303,3 +303,20 @@ rule ATAC_peak_to_h5ad:
         time = '1:00:00'
     script:
         '../scripts/archr_peak_to_h5ad.py'
+
+rule ATAC_retrieveHarmonyLSI:
+    input:
+        project_path = ancient('out/archr/Atlas/ATAC/proj_2'),
+        flag_file = 'out/archr/Atlas/ATAC/flags/addQCandMetadata.txt'
+    output:
+        harmony_lsi_csv = 'out/archr/Atlas/ATAC/harmony_lsi.csv',
+    params:
+        threads = 24
+    singularity:
+        'workflow/envs/archr_1.0.3-base-r4.1_0.0.1.sif'
+    threads: 24
+    resources:
+        mem_mb = 50000,
+        time = '1:00:00'
+    script:
+        '../scripts/archr_retrieveHarmonyLSI.R'
