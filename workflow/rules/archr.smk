@@ -307,7 +307,7 @@ rule ATAC_peak_to_h5ad:
 rule ATAC_retrieveHarmonyLSI:
     input:
         project_path = ancient('out/archr/Atlas/ATAC/proj_2'),
-        flag_file = 'out/archr/Atlas/ATAC/flags/addQCandMetadata.txt'
+        flag_file = 'out/archr/Atlas/ATAC/flags/dimensionalityReduction.txt'
     output:
         harmony_lsi_csv = 'out/archr/Atlas/ATAC/harmony_lsi.csv',
     params:
